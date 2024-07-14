@@ -11,7 +11,7 @@ def generate_connected_zero_mass(rows, cols, zero_fraction):
 
     # Initialize the starting point for the flood fill
     start_x = np.random.randint(0, rows)
-    start_y = np.random.randint(5, cols)
+    start_y = np.random.randint(0, cols)
     array[start_x, start_y] = 0
     num_zeros -= 1
 
@@ -32,6 +32,10 @@ def generate_connected_zero_mass(rows, cols, zero_fraction):
                 num_zeros -= 1
                 if num_zeros <= 0:
                     break
+
+    # Ensure the bottom 20% of the map is clear
+    array[-1, :] = 0
+    array[-2, :] = 0
 
     return array
 

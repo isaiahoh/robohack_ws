@@ -55,5 +55,4 @@ def place_agents(occupancy_map, num_agents, fov_radius):
         if best_position:
             agent_positions.append(best_position)
             covered_cells.update(best_coverage)
-    
     return agent_positions

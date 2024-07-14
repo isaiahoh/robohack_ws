@@ -77,28 +77,3 @@ def astar(maze, start, end):
 
             # Add the child to the open list
             heapq.heappush(open_list, child)
-
-start = (0, 0)
-end = (4, 6)
-
-maze = [
-    [0, 1, 0, 0, 0, 0, 0],
-    [0, 1, 0, 1, 1, 1, 0],
-    [0, 1, 0, 0, 0, 0, 0],
-    [0, 0, 0, 1, 1, 1, 1],
-    [1, 1, 0, 0, 0, 0, 0]
-]
-
-def print_maze(maze, path):
-    maze_path = [[' ' if cell == 0 else '#' for cell in row] for row in maze]
-    for position in path:
-        maze_path[position[0]][position[1]] = '*'
-    for row in maze_path:
-        print(''.join(row))
-
-# Find the path
-path = astar(maze, start, end)
-
-# Print the path
-print("Path:", path)
-print_maze(maze, path)

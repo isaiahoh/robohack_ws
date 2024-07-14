@@ -5,6 +5,7 @@ import time
 import random
 import os
 from numba import njit
+from visualization import darp_area_visualization
 
 np.set_printoptions(threshold=sys.maxsize)
 
@@ -90,7 +91,9 @@ class DARP:
 
         self.rows = nx
         self.cols = ny
-        self.initial_positions, self.obstacles_positions, self.portions = self.sanity_check(given_initial_positions, given_portions, obstacles_positions, notEqualPortions)
+        self.initial_positions = given_initial_positions
+        self.obstacles_positions = obstacles_positions
+        self.portions = given_portions
 
         self.visualization = visualization
         self.MaxIter = MaxIter
@@ -110,7 +113,7 @@ class DARP:
         self.droneNo = len(self.initial_positions)
         self.A = np.zeros((self.rows, self.cols))
         self.GridEnv = self.defineGridEnv()
-   
+        self.portions = given_portions
         self.connectivity = np.zeros((self.droneNo, self.rows, self.cols), dtype=np.uint8)
         self.BinaryRobotRegions = np.zeros((self.droneNo, self.rows, self.cols), dtype=bool)
 
@@ -123,56 +126,17 @@ class DARP:
             self.color.append(list(np.random.choice(range(256), size=3)))
         
         np.random.seed(1)
-
-    def sanity_check(self, given_initial_positions, given_portions, obs_pos, notEqualPortions):
-        initial_positions = []
-        for position in given_initial_positions:
-            if position < 0 or position >= self.rows * self.cols:
-                print("Initial positions should be inside the Grid.")
-                sys.exit(1)
-            initial_positions.append((position // self.cols, position % self.cols))
-
-        obstacles_positions = []
-        for obstacle in obs_pos:
-            if obstacle < 0 or obstacle >= self.rows * self.cols:
-                print("Obstacles should be inside the Grid.")
-                sys.exit(2)
-            obstacles_positions.append((obstacle // self.cols, obstacle % self.cols))
-
-        portions = []
-        if notEqualPortions:
-            portions = given_portions
-        else:
-            for drone in range(len(initial_positions)):
-                portions.append(1 / len(initial_positions))
-
-        if len(initial_positions) != len(portions):
-            print("Portions should be defined for each drone")
-            sys.exit(3)
-
-        s = sum(portions)
-        if abs(s - 1) >= 0.0001:
-            print("Sum of portions should be equal to 1.")
-            sys.exit(4)
-
-        for position in initial_positions:
-            for obstacle in obstacles_positions:
-                if position[0] == obstacle[0] and position[1] == obstacle[1]:
-                    print("Initial positions should not be on obstacles")
-                    sys.exit(5)
-
-        return initial_positions, obstacles_positions, portions
           
     def defineGridEnv(self):
-        GridEnv = np.full(shape=(self.rows, self.cols), fill_value=-1)  # create non obstacle map with value -1
+        GridEnv = np.full(shape=(self.rows, self.cols), fill_value=0)
         
         # obstacle tiles value is -2
         for idx, obstacle_pos in enumerate(self.obstacles_positions):
-            GridEnv[obstacle_pos[0], obstacle_pos[1]] = -2
+            GridEnv[obstacle_pos[0], obstacle_pos[1]] = 1
 
         connectivity = np.zeros((self.rows, self.cols))
         
-        mask = np.where(GridEnv == -1)
+        mask = np.where(GridEnv == 0)
         connectivity[mask[0], mask[1]] = 255
         image = np.uint8(connectivity)
         num_labels, labels_im = cv2.connectedComponents(image, connectivity=4)
@@ -267,9 +231,8 @@ class DARP:
                             self.generateRandomMatrix(),
                             self.MetricMatrix[r],
                             ConnectedMultiplierList[r, :, :])
-
-                iteration += 1
-                if self.visualization:
+            iteration += 1
+            if self.visualization:
                     self.assignment_matrix_visualization.placeCells(self.A, iteration_number=iteration)
                     time.sleep(0.2)
 
