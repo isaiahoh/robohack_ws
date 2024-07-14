@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing agi_hacks.egg-info/PKG-INFO
+writing dependency_links to agi_hacks.egg-info/dependency_links.txt
+writing entry points to agi_hacks.egg-info/entry_points.txt
+writing requirements to agi_hacks.egg-info/requires.txt
+writing top-level names to agi_hacks.egg-info/top_level.txt
+reading manifest file 'agi_hacks.egg-info/SOURCES.txt'
+writing manifest file 'agi_hacks.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/leo/hackathon/agi_house_robotics/ros2_ws/install/agi_hacks/lib/python3.10/site-packages/agi-hacks.egg-link (link to .)
+Installing fly script to /home/leo/hackathon/agi_house_robotics/ros2_ws/install/agi_hacks/lib/agi_hacks
+
+Installed /home/leo/hackathon/agi_house_robotics/ros2_ws/build/agi_hacks
+running symlink_data

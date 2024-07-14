@@ -32,7 +32,7 @@ def flatten_tuple(t, rows, cols):
     return t[0] * rows + t[1]
 
 
-ocup_grid = generate_connected_zero_mass(rows=16, cols=16, zero_fraction=0.8)
+ocup_grid = generate_connected_zero_mass(rows=16, cols=16, zero_fraction=0.7)
 enemy_map = place_enemies_in_map(ocup_grid)
 
 # Get optimal starting positions
@@ -55,9 +55,9 @@ for count,pos in enumerate(init_pos):
     x = pos[0]
     y = pos[1]
     ocup_grid[x][y] = 125+count
-    plt.imshow(ocup_grid)
-    plt.colorbar()
-    plt.show()
+plt.imshow(ocup_grid)
+plt.colorbar()
+plt.show()
 
 # Initialize DARP
 darp_instance = DARP(nx=16, ny=16, notEqualPortions=False, given_initial_positions=init_pos, given_portions=portions, 

@@ -1,0 +1,3 @@
+[console_scripts]
+fly = agi_hacks.publisher_member_function:main
+

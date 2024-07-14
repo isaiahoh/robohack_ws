@@ -1,0 +1,19 @@
+[1.058s] Invoking command in '/home/leo/hackathon/agi_house_robotics/ros2_ws/build/agi_hacks': PYTHONPATH=/home/leo/hackathon/agi_house_robotics/ros2_ws/build/agi_hacks/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/leo/hackathon/agi_house_robotics/ros2_ws/install/agi_hacks/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/leo/hackathon/agi_house_robotics/ros2_ws/build/agi_hacks/build --no-deps symlink_data
+[1.462s] running develop
+[1.463s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.463s]   warnings.warn(
+[1.779s] running egg_info
+[1.780s] writing agi_hacks.egg-info/PKG-INFO
+[1.780s] writing dependency_links to agi_hacks.egg-info/dependency_links.txt
+[1.780s] writing entry points to agi_hacks.egg-info/entry_points.txt
+[1.780s] writing requirements to agi_hacks.egg-info/requires.txt
+[1.780s] writing top-level names to agi_hacks.egg-info/top_level.txt
+[1.782s] reading manifest file 'agi_hacks.egg-info/SOURCES.txt'
+[1.783s] writing manifest file 'agi_hacks.egg-info/SOURCES.txt'
+[1.785s] running build_ext
+[1.785s] Creating /home/leo/hackathon/agi_house_robotics/ros2_ws/install/agi_hacks/lib/python3.10/site-packages/agi-hacks.egg-link (link to .)
+[1.786s] Installing fly script to /home/leo/hackathon/agi_house_robotics/ros2_ws/install/agi_hacks/lib/agi_hacks
+[1.786s] 
+[1.786s] Installed /home/leo/hackathon/agi_house_robotics/ros2_ws/build/agi_hacks
+[1.786s] running symlink_data
+[1.827s] Invoked command in '/home/leo/hackathon/agi_house_robotics/ros2_ws/build/agi_hacks' returned '0': PYTHONPATH=/home/leo/hackathon/agi_house_robotics/ros2_ws/build/agi_hacks/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/leo/hackathon/agi_house_robotics/ros2_ws/install/agi_hacks/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/leo/hackathon/agi_house_robotics/ros2_ws/build/agi_hacks/build --no-deps symlink_data

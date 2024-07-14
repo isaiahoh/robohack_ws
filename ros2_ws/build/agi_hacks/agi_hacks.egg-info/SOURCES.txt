@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+agi_hacks/__init__.py
+agi_hacks/publisher_member_function.py
+agi_hacks.egg-info/PKG-INFO
+agi_hacks.egg-info/SOURCES.txt
+agi_hacks.egg-info/dependency_links.txt
+agi_hacks.egg-info/entry_points.txt
+agi_hacks.egg-info/requires.txt
+agi_hacks.egg-info/top_level.txt
+agi_hacks.egg-info/zip-safe
+resource/agi_hacks
