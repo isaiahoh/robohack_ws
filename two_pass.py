@@ -60,7 +60,7 @@ def analyze_connected_regions(occupancy_map, agent_position):
     num_regions = len(regions)
 
     if num_regions == 1:
-        return "Agent is not surrounded."
+        return 0
 
     # Calculate the global average path length
     total_length = sum(regions.values())
@@ -71,6 +71,6 @@ def analyze_connected_regions(occupancy_map, agent_position):
     agent_region_length = regions[agent_region]
 
     if agent_region_length >= average_length:
-        return "Agent is not surrounded."
+        return 0
     else:
-        return "Agent is surrounded."
+        return 1

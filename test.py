@@ -14,7 +14,7 @@ if __name__ == '__main__':
     ])
 
     num_agents = 3
-    fov_radius = 2
+    fov_radius = 3
 
     agent_positions = place_agents(occupancy_map, num_agents, fov_radius)
     print("Agent positions:", agent_positions)
